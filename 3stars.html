@@ -1,0 +1,267 @@
+<!doctype html>
+<html lang="fi">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bollywoodin Taikaa — Tähdet</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <a class="skip-link" href="#main">Siirry sisältöön</a>
+
+    <header class="site-header" role="banner">
+        <div class="container header-inner">
+            <h1 class="site-title"><a href="index.html" class="nav-link">Bollywoodin Taikaa</a></h1>
+
+            <nav class="main-nav" aria-label="Päävalikko">
+                <a href="index.html" class="nav-link">Etusivu</a>
+                <a href="2movies.html" class="nav-link">Elokuvat</a>
+                <a href="3stars.html" class="nav-link active" aria-current="page">Tähdet</a>
+                <a href="4directors.html" class="nav-link">Ohjaajat</a>
+                <a href="5music.html" class="nav-link">Musiikki</a>
+            </nav>
+
+            <div class="header-actions">
+                <button id="theme-toggle" aria-pressed="false" aria-label="Vaihda tummaan tilaan">Tumma</button>
+            </div>
+        </div>
+    </header>
+
+    <main id="main" class="container" role="main" tabindex="-1">
+        <section aria-labelledby="stars-title" class="page-section">
+            <h2 id="stars-title" class="page-title">Tähdet</h2>
+            <p class="mb-2">Isoimmat näyttelijät ja lyhyet esittelyt.</p>
+
+            <div class="controls">
+                <input type="text" id="star-search" placeholder="Hae tähtiä">
+            </div>
+
+            <div id="stars-grid" class="grid-list" aria-live="polite">
+                <article class="star-card">
+                    <img src="pictures/ShahrukhKhan.png" alt="Shah Rukh Khan" loading="lazy" width="300"
+                        height="350">
+                    <h3>Shah Rukh Khan</h3>
+                    <p>Tunnettu romanttisista rooleista ja pitkästä urasta.</p>
+                </article>
+
+                <article class="star-card">
+                    <img src="pictures/Amitabh.png" alt="Amitabh Bachchan" loading="lazy" width="300" height="350">
+                    <h3>Amitabh Bachchan</h3>
+                    <p>Legendaarinen näyttelijä ja kansallinen ikoni.</p>
+                </article>
+
+                <article class="star-card">
+                    <img src="pictures/SalmanKhan.png" alt="Salman Khan" loading="lazy" width="300" height="350">
+                    <h3>Salman Khan</h3>
+                    <p>Tunnettu romanttisista rooleista ja pitkästä urasta.</p>
+                </article>
+
+                <article class="star-card">
+                    <img src="pictures/DeepikaPadukone.png" alt="Deepika Padukone" loading="lazy" width="300" height="350">
+                    <h3>Deepika Padukone</h3>
+                    <p>Yksi Bollywoodin menestyneimmistä näyttelijöistä, tunnettu monista rooleistaan.</p>
+                </article>
+
+                <article class="star-card">
+                    <img src="pictures/RanveerSingh.png" alt="Ranveer Singh" loading="lazy" width="300" height="350">
+                    <h3>Ranveer Singh</h3>
+                    <p>Energiaa ja karismaa täynnä oleva näyttelijä, joka on voittanut useita palkintoja.</p>
+                </article>
+
+                <article class="star-card">
+                    <img src="pictures/KareenaKapoor.png" alt="Kareena Kapoor" loading="lazy" width="300" height="350">
+                    <h3>Kareena Kapoor</h3>
+                    <p>Ikoninen näyttelijä, joka on ollut keskeinen hahmo Bollywoodissa vuosikymmeniä.</p>
+                </article>
+
+                <article class="star-card">
+                    <img src="pictures/VarunDhawan.png" alt="Varun Dhawan" loading="lazy" width="300" height="350">
+                    <h3>Varun Dhawan</h3>
+                    <p>Nuori ja lahjakas näyttelijä, joka on voittanut sydämiä monilla elokuvillaan.</p>
+                </article>
+
+                <article class="star-card">
+                    <img src="pictures/AliaBhatt.png" alt="Alia Bhatt" loading="lazy" width="300" height="350">
+                    <h3>Alia Bhatt</h3>
+                    <p>Monipuolinen näyttelijä, joka on saanut kiitosta rooleistaan eri genreissä.</p>
+                </article>
+
+                <article class="star-card">
+                    <img src="pictures/AkshayKumar.png" alt="Akshay Kumar" loading="lazy" width="300" height="350">
+                    <h3>Akshay Kumar</h3>
+                    <p>Monipuolinen näyttelijä, joka on tunnettu komedia- ja toimintaroolistaan.</p>
+                </article>
+
+                <article class="star-card">
+                    <img src="pictures/AnushkaSharma.png" alt="Anushka Sharma" loading="lazy" width="300" height="350">
+                    <h3>Anushka Sharma</h3>
+                    <p>Menestyvä näyttelijä ja tuottaja, joka on ollut mukana monissa hit-elokuvissa.</p>
+                </article>
+
+                <article class="star-card">
+                    <img src="pictures/JohnAbraham.png" alt="John Abraham" loading="lazy" width="300" height="350">
+                    <h3>John Abraham</h3>
+                    <p>Tunnettu näyttelijä ja tuottaja, joka on erikoistunut toimintarooliin.</p>
+                </article>
+
+                <article class="star-card">
+                    <img src="pictures/Prabhas.png" alt="Prabhas" loading="lazy" width="300" height="350">
+                    <h3>Prabhas</h3>
+                    <p>Suosittu näyttelijä, joka nousi kansainväliseen kuuluisuuteen elokuvassa Baahubali.</p>
+                </article>
+
+                <article class="star-card">
+                    <img src="pictures/KatrinaKaif.png" alt="Katrina Kaif" loading="lazy" width="300" height="350">
+                    <h3>Katrina Kaif</h3>
+                    <p>Yksi Bollywoodin johtavista näyttelijöistä, tunnettu tanssitaidoistaan.</p>
+                </article>
+
+                <article class="star-card">
+                    <img src="pictures/HrithikRoshan.png" alt="Hrithik Roshan" loading="lazy" width="300" height="350">
+                    <h3>Hrithik Roshan</h3>
+                    <p>Monipuolinen näyttelijä, joka on saanut kiitosta rooleistaan eri genreissä.</p>
+                </article>
+
+                <article class="star-card">
+                    <img src="pictures/RajeshKhanna.png" alt="Rajesh Khanna" loading="lazy" width="300" height="350">
+                    <h3>Rajesh Khanna</h3>
+                    <p>Ikoninen näyttelijä, joka on ollut keskeinen hahmo Bollywoodissa vuosikymmeniä.</p>
+                </article>
+
+                <article class="star-card">
+                    <img src="pictures/AkshayeKhanna.png" alt="Akshaye Khanna" loading="lazy" width="300" height="350">
+                    <h3>Akshaye Khanna</h3>
+                    <p>Ikoninen näyttelijä, joka on ollut keskeinen hahmo Bollywoodissa vuosikymmeniä.</p>
+                </article>
+
+                <article class="star-card">
+                    <img src="pictures/SidharthMalhotra.png" alt="Sidharth Malhotra" loading="lazy" width="300" height="350">
+                    <h3>Sidharth Malhotra</h3>
+                    <p>Nuori ja lahjakas näyttelijä, joka on voittanut sydämiä monilla elokuvillaan.</p>
+                </article>
+
+                <article class="star-card">
+                    <img src="pictures/MadhuriDixit.png" alt="Madhuri Dixit" loading="lazy" width="300" height="350">
+                    <h3>Madhuri Dixit</h3>
+                    <p>Ikoninen näyttelijä, joka on ollut keskeinen hahmo Bollywoodissa vuosikymmeniä.</p>
+                </article>
+
+                <article class="star-card">
+                    <img src="pictures/Kajol.png" alt="Kajol" loading="lazy" width="300" height="350">
+                    <h3>Kajol</h3>
+                    <p>Tunnettu romanttisista rooleista ja pitkästä urasta.</p>
+                </article>
+
+                <article class="star-card">
+                    <img src="pictures/RanbirKapoor.png" alt="Ranbir Kapoor" loading="lazy" width="300" height="350">
+                    <h3>Ranbir Kapoor</h3>
+                    <p>Monipuolinen näyttelijä, joka on saanut kiitosta rooleistaan eri genreissä.</p>
+                </article>
+
+                <article class="star-card">
+                    <img src="pictures/SonamKapoor.png" alt="Sonam Kapoor" loading="lazy" width="300" height="350">
+                    <h3>Sonam Kapoor</h3>
+                    <p>Muotitietoinen näyttelijä, joka on tunnettu tyylikkäistä rooleistaan.</p>
+                </article>
+
+                <article class="star-card">
+                    <img src="pictures/ShraddhaKapoor.png" alt="Shraddha Kapoor" loading="lazy" width="300" height="350">
+                    <h3>Shraddha Kapoor</h3>
+                    <p>Monipuolinen näyttelijä, joka on saanut kiitosta rooleistaan eri genreissä.</p>
+                </article>
+
+                <article class="star-card">
+                    <img src="pictures/JacquelineFernandez.png" alt="Jacqueline Fernandez" loading="lazy" width="300" height="350">
+                    <h3>Jacqueline Fernandez</h3>
+                    <p>Monipuolinen näyttelijä ja entinen Miss Sri Lanka, joka on esiintynyt useissa Bollywood-elokuvissa.</p>
+                </article>
+
+                <article class="star-card">
+                    <img src="pictures/TigerShroff.png" alt="Tiger Shroff" loading="lazy" width="300" height="350">
+                    <h3>Tiger Shroff</h3>
+                    <p>Nuori näyttelijä ja tanssija, joka on tunnettu toimintaroolistaan ja upeista tanssiliikkeistään.</p>
+                </article>
+
+                <article class="star-card">
+                    <img src="pictures/HemaMalini.png" alt="Hema Malini" loading="lazy" width="300" height="350">
+                    <h3>Hema Malini</h3>
+                    <p>Ikoninen näyttelijä, joka on ollut keskeinen hahmo Bollywoodissa vuosikymmeniä.</p>
+                </article>
+
+                <article class="star-card">
+                    <img src="pictures/AnilKapoor.png" alt="Anil Kapoor" loading="lazy" width="300" height="350">
+                    <h3>Anil Kapoor</h3>
+                    <p>Monipuolinen näyttelijä, joka on tunnettu komedia- ja draamaroolistaan.</p>
+                </article>
+
+                <article class="star-card">
+                    <img src="pictures/PreityZinta.png" alt="Preity Zinta" loading="lazy" width="300" height="350">
+                    <h3>Preity Zinta</h3>
+                    <p>Monipuolinen näyttelijä, joka on saanut kiitosta rooleistaan eri genreissä.</p>
+                </article>
+
+                <article class="star-card">
+                    <img src="pictures/VidhyaBalan.png" alt="Vidya Balan" loading="lazy" width="300" height="350">
+                    <h3>Vidya Balan</h3>
+                    <p>Monipuolinen näyttelijä, joka on saanut kiitosta rooleistaan eri genreissä.</p>
+                </article>
+
+                <article class="star-card">
+                    <img src="pictures/SonakshiSinha.png" alt="Sonakshi Sinha" loading="lazy" width="300" height="350">
+                    <h3>Sonakshi Sinha</h3>
+                    <p>Monipuolinen näyttelijä, joka on saanut kiitosta rooleistaan eri genreissä.</p>
+                </article>
+
+                <article class="star-card">
+                    <img src="pictures/PriyankaChopra.png" alt="Priyanka Chopra" loading="lazy" width="300" height="350">
+                    <h3>Priyanka Chopra</h3>
+                    <p>Monipuolinen näyttelijä, joka on saanut kiitosta rooleistaan eri genreissä.</p>
+                </article>
+
+                <article class="star-card">
+                    <img src="pictures/ShahidKapoor.png" alt="Shahid Kapoor" loading="lazy" width="300" height="350">
+                    <h3>Shahid Kapoor</h3>
+                    <p>Monipuolinen näyttelijä, joka on saanut kiitosta rooleistaan eri genreissä.</p>
+                </article>
+
+                <article class="star-card">
+                    <img src="pictures/KiaraAdvani.png" alt="Kiara Advani" loading="lazy" width="300" height="350">
+                    <h3>Kiara Advani</h3>
+                    <p>Monipuolinen näyttelijä, joka on saanut kiitosta rooleistaan eri genreissä.</p>
+                </article>
+
+                <article class="star-card">
+                    <img src="pictures/RashmikaMandana.png" alt="Rashmika Mandana" loading="lazy" width="300" height="350">
+                    <h3>Rashmika Mandana</h3>
+                    <p>Monipuolinen näyttelijä, joka on saanut kiitosta rooleistaan eri genreissä.</p>
+                </article>
+
+                <article class="star-card">
+                    <img src="pictures/AishwaryaRai.png" alt="Aishwarya Rai" loading="lazy" width="300" height="350">
+                    <h3>Aishwarya Rai</h3>
+                    <p>Ikoninen näyttelijä, joka on tunnettu Bollywoodin historiasta ja sen vaikutuksesta maailmaan.</p>
+                </article>
+
+                <article class="star-card">
+                    <img src="pictures/KritiSanon.png" alt="Kriti Sanon" loading="lazy" width="300" height="350">
+                    <h3>Kriti Sanon</h3>
+                    <p>Monipuolinen näyttelijä, joka on saanut kiitosta rooleistaan eri genreissä.</p>
+                </article>
+
+                <!-- Lisää tähti-kortteja -->
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer" role="contentinfo">
+        <div class="container footer-inner">
+            <p>&copy; 2025 Bollywoodin Taikaa</p>
+        </div>
+    </footer>
+
+    <script src="script.js" defer></script>
+</body>
+
+</html>

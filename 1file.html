@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bollywoodin Taikaa</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    <div id="root"></div>
+    <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script>
+        const { useState, useEffect } = React;
+
+        // Icon components
+        const Sun = () => <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>;
+        const Moon = () => <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>;
+        const Search = () => <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>;
+
+// All Data
+const movies = [
+    { title: "Sholay (1975)", meta: "Klassikko — seikkailu & toimintaa.", img: "https://upload.wikimedia.org/wikipedia/en/4/45/Sholay_poster.jpg" },
+    { title: "Dilwale Dulhania Le Jayenge (1995)", meta: "Romanttinen kulttiklassikko.", img: "https://upload.wikimedia.org/wikipedia/en/8/80/Dilwale_Dulhania_Le_Jayenge_poster.jpg" },
+    { title: "3 Idiots (2009)", meta: "Komediallinen draama koulusta ja ystävyydestä.", img: "https://upload.wikimedia.org/wikipedia/en/d/df/3_idiots_poster.jpg" },
+    { title: "Bahubali: The Beginning (2015)", meta: "Eepos täynnä toimintaa ja visuaalisia tehosteita.", img: "https://upload.wikimedia.org/wikipedia/en/7/7c/Baahubali_The_Beginning_poster.jpg" },
+    { title: "Bahubali 2: The Conclusion (2017)", meta: "Eepos täynnä toimintaa ja visuaalisia tehosteita.", img: "https://upload.wikimedia.org/wikipedia/en/f/f8/Baahubali_The_Conclusion.jpg" },
+    { title: "Kabhi Khushi Kabhie Gham (2001)", meta: "Perhedraama ja tunteikas kertomus.", img: "https://upload.wikimedia.org/wikipedia/en/3/34/Kabhi_Khushi_Kabhie_Gham_poster.jpg" },
+    { title: "Lagaan (2001)", meta: "Historiallinen draama ja urheiluelokuva.", img: "https://upload.wikimedia.org/wikipedia/en/6/6b/Lagaan_poster.jpg" },
+    { title: "Dangal (2016)", meta: "Inspiroiva urheilu.", img: "https://upload.wikimedia.org/wikipedia/en/9/99/Dangal_Poster.jpg" },
+    { title: "PK (2014)", meta: "Komediallinen draama uskonnosta ja ihmiskunnasta.", img: "https://upload.wikimedia.org/wikipedia/en/c/c3/PK_poster.jpg" },
+    { title: "Zindagi Na Milegi Dobara (2011)", meta: "Seikkailu ja itsensä löytäminen.", img: "https://upload.wikimedia.org/wikipedia/en/1/1e/Zindagi_Na_Milegi_Dobara_poster.jpg" },
+    { title: "Barfi! (2012)", meta: "Romanttinen draama ja komedia.", img: "https://upload.wikimedia.org/wikipedia/en/0/05/Barfi%21_poster.jpg" },
+    { title: "Koi Mil Gaya (2003)", meta: "Sci-fi ja fantasia.", img: "https://upload.wikimedia.org/wikipedia/en/b/b7/Koi..._Mil_Gaya.jpg" },
+    { title: "Krrish (2006)", meta: "Sci-fi ja fantasia.", img: "https://upload.wikimedia.org/wikipedia/en/2/21/Krrish.jpg" },
+    { title: "Krrish 3 (2013)", meta: "Sci-fi ja fantasia.", img: "https://upload.wikimedia.org/wikipedia/en/5/5d/Krrish_3_poster.jpg" },
+    { title: "Devdas (2002)", meta: "Tragikoominen rakkaustarina.", img: "https://upload.wikimedia.org/wikipedia/en/5/52/Devdas2002.jpg" },
+    { title: "Taare Zameen Par (2007)", meta: "Tunteikas draama lapsesta ja koulusta.", img: "https://upload.wikimedia.org/wikipedia/en/b/bf/Taare_Zameen_Par_Poster.jpg" },
+    { title: "Robot (2010)", meta: "Sci-fi ja fantasia.", img: "https://upload.wikimedia.org/wikipedia/en/4/4c/Enthiran_poster.jpg" },
+    { title: "Chennai Express (2013)", meta: "Toimintakomedia ja romantiikka.", img: "https://upload.wikimedia.org/wikipedia/en/4/43/Chennai_Express.jpg" },
+    { title: "Housefull (2010)", meta: "Komediallinen sekasorto ja hauskat tilanteet.", img: "https://upload.wikimedia.org/wikipedia/en/6/67/Housefull_poster.jpg" },
+    { title: "Housefull 2 (2012)", meta: "Komediallinen sekasorto ja hauskat tilanteet.", img: "https://upload.wikimedia.org/wikipedia/en/5/52/Housefull_2.jpg" },
+    { title: "Sultan (2016)", meta: "Urheilu ja draama.", img: "https://upload.wikimedia.org/wikipedia/en/8/86/Sultan_film_poster.jpg" },
+    { title: "Bajrangi Bhaijaan (2015)", meta: "Tunteikas draama ja seikkailu.", img: "https://upload.wikimedia.org/wikipedia/en/6/67/Bajrangi_Bhaijaan_poster.jpg" },
+    { title: "Tiger Zinda Hai (2017)", meta: "Toiminta ja jännitys.", img: "https://upload.wikimedia.org/wikipedia/en/a/a4/Tiger_Zinda_Hai_poster.jpg" },
+    { title: "Jab Tak Hai Jaan (2012)", meta: "Romanttinen draama ja seikkailu.", img: "https://upload.wikimedia.org/wikipedia/en/7/79/Jab_Tak_Hai_Jaan_poster.jpg" },
+    { title: "Padmaavat (2018)", meta: "Historiallinen eepos ja seikkailu.", img: "https://upload.wikimedia.org/wikipedia/en/9/9d/Padmaavat.jpg" },
+    { title: "Rang De Basanti (2006)", meta: "Nuorison draama ja aktivismia.", img: "https://upload.wikimedia.org/wikipedia/en/e/ec/Rang_De_Basanti_poster.jpg" },
+    { title: "Pink (2016)", meta: "Oikeudellinen draama ja feminismi.", img: "https://upload.wikimedia.org/wikipedia/en/9/90/Pink_2016_film_poster.jpg" },
+    { title: "Kahaani (2012)", meta: "Mysteeri ja jännitys.", img: "https://upload.wikimedia.org/wikipedia/en/b/bd/Kahaani_Poster.jpg" },
+    { title: "Tumbbad (2018)", meta: "Kauhu ja mysteeri.", img: "https://upload.wikimedia.org/wikipedia/en/c/ce/Tumbbad_poster.jpg" },
+    { title: "Chandni (1989)", meta: "Romanttinen draama klassikko.", img: "https://upload.wikimedia.org/wikipedia/en/f/fa/Chandni_1989_film_poster.jpg" },
+    { title: "Dil Se (1998)", meta: "Romanttinen thriller.", img: "https://upload.wikimedia.org/wikipedia/en/1/17/Dil_Se_poster.jpg" },
+    { title: "Hera Pheri (2000)", meta: "Komedia ja seikkailu.", img: "https://upload.wikimedia.org/wikipedia/en/9/92/Hera_Pheri_2000_film.jpg" },
+    { title: "Phir Hera Pheri (2006)", meta: "Komedia ja huijaukset.", img: "https://upload.wikimedia.org/wikipedia/en/b/b2/Phir_Hera_Pheri.jpg" },
+    { title: "Chak De India (2007)", meta: "Urheilu ja naisen voimistuminen.", img: "https://upload.wikimedia.org/wikipedia/en/e/e8/Chakdeindia.jpg" },
+    { title: "Bhaag Milkha Bhaag (2013)", meta: "Urheilu ja elämäkerta.", img: "https://upload.wikimedia.org/wikipedia/en/d/de/Bhaag_Milkha_Bhaag_poster.jpg" },
+    { title: "Sanju (2018)", meta: "Elämäkerta ja draama.", img: "https://upload.wikimedia.org/wikipedia/en/2/29/Sanju_film_poster.jpg" },
+    { title: "Gully Boy (2019)", meta: "Musiikki ja draama.", img: "https://upload.wikimedia.org/wikipedia/en/7/7f/Gully_Boy_poster.jpg" },
+    { title: "Veer-Zaara (2004)", meta: "Klassinen rakkaustarina.", img: "https://upload.wikimedia.org/wikipedia/en/3/30/Veer-Zaara_poster.jpg" },
+    { title: "Ek Tha Tiger (2012)", meta: "Vakooja ja romantiikka.", img: "https://upload.wikimedia.org/wikipedia/en/d/d2/Ek_Tha_Tiger_poster.jpg" },
+    { title: "Pathaan (2023)", meta: "Vakooja thriller ja toiminta.", img: "https://upload.wikimedia.org/wikipedia/en/7/79/Pathaan_film_poster.jpg" },
+    { title: "Yeh Jawaani Hai Deewani (2013)", meta: "Romanttinen nuorison seikkailu.", img: "https://upload.wikimedia.org/wikipedia/en/8/82/Yeh_Jawaani_Hai_Deewani_poster.jpg" },
+    { title: "Aashiqui 2 (2013)", meta: "Musiikki ja rakkaustarina.", img: "https://upload.wikimedia.org/wikipedia/en/a/a9/Aashiqui_2_Poster.jpg" },
+    { title: "Stree (2018)", meta: "Kauhu komedia.", img: "https://upload.wikimedia.org/wikipedia/en/5/53/Stree_%282018_film%29_Poster.jpg" },
+    { title: "Bhool Bhulaiyaa (2007)", meta: "Kauhu komedia.", img: "https://upload.wikimedia.org/wikipedia/en/7/74/Bhool_Bhulaiyaa_poster.jpg" },
+    { title: "Bhool Bhulaiyaa 2 (2022)", meta: "Kauhu komedia.", img: "https://upload.wikimedia.org/wikipedia/en/e/eb/Bhool_Bhulaiyaa_2.jpg" },
+    { title: "Drishyam (2015)", meta: "Thriller ja salaisuus.", img: "https://upload.wikimedia.org/wikipedia/en/2/24/Drishyam_2015_Hindi_film_poster.jpg" },
+    { title: "War (2019)", meta: "Toiminta vakooja draama.", img: "https://upload.wikimedia.org/wikipedia/en/6/67/War_%282019_film%29.jpg" },
+    { title: "Baaghi (2016)", meta: "Toiminta draama kosto.", img: "https://upload.wikimedia.org/wikipedia/en/7/78/Baaghi_Poster.jpg" },
+    { title: "Brahmastra (2022)", meta: "Fantasia ja seikkailu.", img: "https://upload.wikimedia.org/wikipedia/en/1/17/Brahm%C4%81stra_%E2%80%93_Part_One-_Shiva.jpg" },
+    { title: "Animal (2023)", meta: "Kriminalisti ja rakkaudesta.", img: "https://upload.wikimedia.org/wikipedia/en/c/c3/Animal_%28film%29.jpg" },
+];
+
+const stars = [
+    { name: "Shah Rukh Khan", desc: "Tunnettu romanttisista rooleista ja pitkästä urasta.", img: "https://upload.wikimedia.org/wikipedia/commons/6/6e/Shah_Rukh_Khan_grance_at_Raees_trailer_launch.jpg" },
+    { name: "Amitabh Bachchan", desc: "Legendaarinen näyttelijä ja kansallinen ikoni.", img: "https://upload.wikimedia.org/wikipedia/commons/1/11/Amitabh_Bachchan_at_IIFA_2016.jpg" },
+    { name: "Salman Khan", desc: "Tunnettu romanttisista rooleista ja pitkästä urasta.", img: "https://upload.wikimedia.org/wikipedia/commons/8/86/Salman_Khan_at_Renault_Star_Guild_Awards.jpg" },
+    { name: "Deepika Padukone", desc: "Yksi Bollywoodin menestyneimmistä näyttelijöistä.", img: "https://upload.wikimedia.org/wikipedia/commons/c/cb/Deepika_Padukone_at_Chhapaak_promotions_%28cropped%29.jpg" },
+    { name: "Ranveer Singh", desc: "Energiaa ja karismaa täynnä oleva näyttelijä.", img: "https://upload.wikimedia.org/wikipedia/commons/6/6d/Ranveer_Singh_promoting_83_%28film%29.jpg" },
+    { name: "Kareena Kapoor", desc: "Ikoninen näyttelijä Bollywoodissa vuosikymmeniä.", img: "https://upload.wikimedia.org/wikipedia/commons/1/18/Kareena_Kapoor_at_Dance_India_Dance.jpg" },
+    { name: "Alia Bhatt", desc: "Monipuolinen näyttelijä eri genreissä.", img: "https://upload.wikimedia.org/wikipedia/commons/0/0c/Alia_Bhatt_at_HT_India%27s_Most_Stylish_2018.jpg" },
+    { name: "Akshay Kumar", desc: "Monipuolinen näyttelijä komedia- ja toimintarooleissa.", img: "https://upload.wikimedia.org/wikipedia/commons/b/bf/Akshay_Kumar_2019.jpg" },
+    { name: "Hrithik Roshan", desc: "Monipuolinen näyttelijä eri genreissä.", img: "https://upload.wikimedia.org/wikipedia/commons/6/67/Hrithik_Roshan_2018.jpg" },
+    { name: "Priyanka Chopra", desc: "Monipuolinen näyttelijä ja kansainvälinen tähti.", img: "https://upload.wikimedia.org/wikipedia/commons/2/23/Priyanka_Chopra_at_TIFF_2017.jpg" },
+    { name: "Ranbir Kapoor", desc: "Monipuolinen näyttelijä eri genreissä.", img: "https://upload.wikimedia.org/wikipedia/commons/d/d0/Ranbir_Kapoor_in_December_2022.jpg" },
+    { name: "Katrina Kaif", desc: "Johtava näyttelijä, tunnettu tanssitaidoistaan.", img: "https://upload.wikimedia.org/wikipedia/commons/a/a3/Katrina_Kaif_at_the_World_Premiere_of_Dhoom_3.jpg" },
+    { name: "Aishwarya Rai", desc: "Ikoninen näyttelijä ja kauneuskuningatar.", img: "https://upload.wikimedia.org/wikipedia/commons/1/1b/Aishwarya_Rai_Cannes_2017.jpg" },
+    { name: "Varun Dhawan", desc: "Nuori ja lahjakas näyttelijä.", img: "https://upload.wikimedia.org/wikipedia/commons/a/a8/Varun_Dhawan_at_Kalank_promotion.jpg" },
+    { name: "Shahid Kapoor", desc: "Monipuolinen näyttelijä eri genreissä.", img: "https://upload.wikimedia.org/wikipedia/commons/4/46/Shahid_at_Haider_trailer_launch.jpg" },
+    { name: "Tiger Shroff", desc: "Nuori näyttelijä, tunnettu toimintaroolistaan.", img: "https://upload.wikimedia.org/wikipedia/commons/e/e9/Tiger_Shroff_at_SOTY_2_promotions_%28cropped%29.jpg" },
+    { name: "Prabhas", desc: "Nousi kuuluisuuteen Baahubali-elokuvissa.", img: "https://upload.wikimedia.org/wikipedia/commons/2/2b/Prabhas_at_Baahubali_2_trailer_launch.jpg" },
+    { name: "Shraddha Kapoor", desc: "Monipuolinen näyttelijä eri genreissä.", img: "https://upload.wikimedia.org/wikipedia/commons/3/30/Shraddha_Kapoor_at_IIFA_2016.jpg" },
+];
+
+const directors = [
+    { name: "Yash Chopra", desc: "Tunnettu romanttisista ja visuaalisista elokuvistaan." },
+    { name: "Sanjay Leela Bhansali", desc: "Visuaalinen spektaakkeli ja dramaattinen kerronta." },
+    { name: "Anurag Kashyap", desc: "Indie- ja realistinen kerronta." },
+    { name: "Karan Johar", desc: "Perhekeskeiset draamat ja romanttiset elokuvat." },
+    { name: "Rajkumar Hirani", desc: "Yhteiskuntakritiikki ja humoristinen kerronta." },
+    { name: "Aditya Chopra", desc: "Romanttinen tarinankerronta." },
+    { name: "Rohit Shetty", desc: "Toiminta- ja komediaelokuvat." },
+    { name: "Zoya Akhtar", desc: "Monipuoliset tarinat ja nykyaikaiset teemat." },
+    { name: "Imtiaz Ali", desc: "Romanttiset draamat ja itsensä löytäminen." },
+    { name: "Farah Khan", desc: "Musikaalit ja viihdyttävät elokuvat." },
+    { name: "Vishal Bhardwaj", desc: "Monipuoliset genret ja syvälliset tarinat." },
+    { name: "Ashutosh Gowariker", desc: "Historialliset draamat ja eeppiset tarinat." },
+    { name: "Rakeysh Omprakash Mehra", desc: "Inspiroivat tarinat ja visuaalisesti vaikuttavat elokuvat." },
+    { name: "Nitesh Tiwari", desc: "Yhteiskuntakritiikki ja koskettavat tarinat." },
+    { name: "Meghna Gulzar", desc: "Yhteiskuntakritiikki ja koskettavat tarinat." },
+    { name: "Raj Kapoor", desc: "Ikoninen ohjaaja-näyttelijä." },
+    { name: "Guru Dutt", desc: "Klassinen ohjaaja ja säveltäjä." },
+    { name: "Hrishikesh Mukherjee", desc: "Romanttinen draamat ja perhekomediat." },
+];
+
+const musicians = [
+    { name: "A.R. Rahman", role: "Säveltäjä", desc: "Oscar-palkittu legendaarinen säveltäjä." },
+    { name: "Shreya Ghoshal", role: "Laulaja", desc: "Yksi Intian suosituimmista laulajista." },
+    { name: "Arijit Singh", role: "Laulaja", desc: "Nykyajan yksi suosituimmista laulajista." },
+    { name: "Sonu Nigam", role: "Laulaja", desc: "Monipuolinen ääni Bollywoodin musiikissa." },
+    { name: "Neha Kakkar", role: "Laulaja", desc: "Nuori tähti, joka on noussut nopeasti suosioon." },
+    { name: "Pritam", role: "Säveltäjä", desc: "Monet hittisävellykset Bollywood-elokuviin." },
+    { name: "Alka Yagnik", role: "Laulaja", desc: "Ikoninen ääni monissa klassisissa elokuvissa." },
+    { name: "Kumar Sanu", role: "Laulaja", desc: "90-luvun suosittu playback-laulaja." },
+    { name: "Vishal-Shekhar", role: "Säveltäjät", desc: "Moderni duo Bollywood-musiikkiin." },
+    { name: "Shankar-Ehsaan-Loy", role: "Säveltäjät", desc: "Trio, joka on luonut ikimuistoisia kappaleita." },
+    { name: "Sunidhi Chauhan", role: "Laulaja", desc: "Energinen ääni Bollywood-musiikkiin." },
+    { name: "Udit Narayan", role: "Laulaja", desc: "Legendaarinen playback-laulaja." },
+    { name: "Mohit Chauhan", role: "Laulaja", desc: "Romanttinen ääni, joka on valloittanut sydämiä." },
+    { name: "Rahat Fateh Ali Khan", role: "Laulaja", desc: "Qawwali-legendan poika." },
+    { name: "Atif Aslam", role: "Laulaja", desc: "Pakistani laulaja Bollywood-musiikissa." },
+    { name: "R.D. Burman", role: "Säveltäjä", desc: "Ikoninen säveltäjä Bollywood-historiassa." },
+];
+
+function BollywoodWebsite() {
+    const [currentPage, setCurrentPage] = useState('home');
+    const [darkMode, setDarkMode] = useState(false);
+    const [movieSearch, setMovieSearch] = useState('');
+    const [starSearch, setStarSearch] = useState('');
+
+    useEffect(() => {
+        const saved = localStorage.getItem('bollywood-theme');
+        if (saved === 'dark') setDarkMode(true);
+    }, []);
+
+    useEffect(() => {
+        localStorage.setItem('bollywood-theme', darkMode ? 'dark' : 'light');
+    }, [darkMode]);
+
+    const filteredMovies = movies.filter(m => 
+        m.title.toLowerCase().includes(movieSearch.toLowerCase())
+    );
+
+    const filteredStars = stars.filter(s => 
+        s.name.toLowerCase().includes(starSearch.toLowerCase())
+    );
+
+    const navItems = [
+        { id: 'home', label: 'Etusivu' },
+        { id: 'movies', label: 'Elokuvat' },
+        { id: 'stars', label: 'Tähdet' },
+        { id: 'directors', label: 'Ohjaajat' },
+        { id: 'music', label: 'Musiikki' },
+    ];
+
+    return (
+        <div className={`min-h-screen transition-colors duration-300 ${darkMode ? 'bg-[#0f1113] text-[#e6eef6]' : 'bg-[#f4f4f4] text-[#222]'}`}>
+            {/* Skip Link */}
+            <a href="#main" className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:bg-[#b30000] focus:text-white focus:px-4 focus:py-2 focus:rounded-lg">
+                Siirry sisältöön
+            </a>
+
+            {/* Header */}
+            <header className="bg-gradient-to-r from-[#b30000] to-[#8b0000] text-white sticky top-0 z-50 shadow-lg">
+                <div className="max-w-7xl mx-auto px-4 py-4">
+                    <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
+                        <h1 className="text-xl lg:text-2xl font-bold">
+                            <button onClick={() => setCurrentPage('home')} className="hover:opacity-80 transition-opacity">
+                                Bollywoodin Taikaa
+                            </button>
+                        </h1>
+
+                        <nav className="flex flex-wrap gap-2" aria-label="Päävalikko">
+                            {navItems.map(item => (
+                                <button
+                                    key={item.id}
+                                    onClick={() => setCurrentPage(item.id)}
+                                    className={`px-4 py-2 rounded-lg font-semibold transition-all duration-200 ${
+                                        currentPage === item.id 
+                                            ? 'bg-white/20 transform -translate-y-0.5' 
+                                            : 'hover:bg-white/10 hover:-translate-y-0.5'
+                                    }`}
+                                    aria-current={currentPage === item.id ? 'page' : undefined}
+                                >
+                                    {item.label}
+                                </button>
+                            ))}
+                        </nav>
+                        <div className="flex items-center gap-3 text-sm">
+                            <span className="hidden sm:inline text-white/70">Sivuja:</span>
+                            <div className="flex gap-1">
+                                {navItems.map(item => (
+                                    <span
+                                        key={item.id}
+                                        className={`w-2 h-2 rounded-full transition-all ${
+                                            currentPage === item.id ? 'bg-white w-6' : 'bg-white/40'
+                                        }`}
+                                        aria-hidden="true"
+                                    />
+                                ))}
+                            </div>
+                        </div>
+
+                        <button
+                            onClick={() => setDarkMode(!darkMode)}
+                            className="flex items-center gap-2 px-4 py-2 rounded-lg border border-white/20 hover:bg-white/10 transition-colors self-start lg:self-auto"
+                            aria-label={darkMode ? 'Vaihda vaaleaan tilaan' : 'Vaihda tummaan tilaan'}
+                        >
+                            {darkMode ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
+                            <span className="text-sm">{darkMode ? 'Vaalea' : 'Tumma'}</span>
+                        </button>
+                    </div>
+                </div>
+            </header>
+
+            {/* Main Content */}
+            <main id="main" className="max-w-7xl mx-auto px-4 py-8" tabIndex={-1}>
+                
+                {/* Home Page */}
+                {currentPage === 'home' && (
+                    <section aria-labelledby="hero-title">
+                        <h2 id="hero-title" className="text-3xl lg:text-4xl font-bold text-[#b30000] mb-4 border-b-4 border-[#d4af37] inline-block pb-2">
+                            Tervetuloa Bollywoodin Taikaan
+                        </h2>
+                        <p className={`text-lg mb-8 ${darkMode ? 'text-[#9aa6b2]' : 'text-[#666]'}`}>
+                            Värikästä draamaa, musiikkia ja ikonisia näyttelijöitä — selaa sivuja tai katso suosituimmat elokuvat.
+                        </p>
+                        
+                        <figure className={`rounded-xl overflow-hidden shadow-2xl ${darkMode ? 'bg-[#121416]' : 'bg-white'}`}>
+                            <img 
+                                src="https://images.unsplash.com/photo-1524492412937-b28074a5d7da?w=1200&h=500&fit=crop" 
+                                alt="Bollywood-kollaasi" 
+                                className="w-full h-64 lg:h-96 object-cover"
+                            />
+                            <figcaption className="bg-[#b30000]/90 text-white p-4 text-center italic">
+                                Bollywood — väriä, musiikkia, draamaa.
+                            </figcaption>
+                        </figure>
+
+                        {/* Quick Stats */}
+                        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mt-8">
+                            {[
+                                { num: `${movies.length}+`, label: 'Elokuvaa' },
+                                { num: `${stars.length}+`, label: 'Tähteä' },
+                                { num: `${directors.length}+`, label: 'Ohjaajaa' },
+                                { num: `${musicians.length}+`, label: 'Muusikkoa' },
+                            ].map((stat, i) => (
+                                <div key={i} className={`p-6 rounded-xl text-center ${darkMode ? 'bg-[#121416]' : 'bg-white'} shadow-lg hover:shadow-xl transition-shadow`}>
+                                    <div className="text-3xl font-bold text-[#b30000]">{stat.num}</div>
+                                    <div className={darkMode ? 'text-[#9aa6b2]' : 'text-[#666]'}>{stat.label}</div>
+                                </div>
+                            ))}
+                        </div>
+                    </section>
+                )}
+
+                {/* Movies Page */}
+                {currentPage === 'movies' && (
+                    <section aria-labelledby="movies-title">
+                        <h2 id="movies-title" className="text-3xl font-bold text-[#b30000] mb-4 border-b-4 border-[#d4af37] inline-block pb-2">
+                            Top Elokuvat
+                        </h2>
+                        
+                        <div className="relative mb-6">
+                            <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
+                            <input
+                                type="text"
+                                placeholder="Hae elokuvia..."
+                                value={movieSearch}
+                                onChange={(e) => setMovieSearch(e.target.value)}
+                                className={`w-full max-w-md pl-10 pr-4 py-3 rounded-xl border ${
+                                    darkMode 
+                                        ? 'bg-[#121416] border-gray-700 text-white placeholder-gray-500' 
+                                        : 'bg-white border-gray-300 text-gray-900 placeholder-gray-400'
+                                } focus:outline-none focus:ring-2 focus:ring-[#b30000]/30`}
+                                aria-label="Hae elokuvia"
+                            />
+                        </div>
+
+                        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4" aria-live="polite" aria-label="Elokuvalista">
+                            {filteredMovies.map((movie, i) => (
+                                <article 
+                                    key={i} 
+                                    className={`rounded-xl overflow-hidden shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 ${
+                                        darkMode ? 'bg-[#121416]' : 'bg-white'
+                                    }`}
+                                >
+                                    <img 
+                                        src={movie.img} 
+                                        alt={`${movie.title} juliste`} 
+                                        className="w-full h-64 object-cover"
+                                        loading="lazy"
+                                        onError={(e) => {
+                                            e.currentTarget.src = 'https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=300&h=450&fit=crop';
+                                        }}
+                                    />
+                                    <h3 className="p-3 font-bold text-sm">{movie.title}</h3>
+                                    <p className={`px-3 pb-4 text-xs ${darkMode ? 'text-[#9aa6b2]' : 'text-[#666]'}`}>
+                                        {movie.meta}
+                                    </p>
+                                </article>
+                            ))}
+                        </div>
+                        
+                        {filteredMovies.length === 0 && (
+                            <p className={`text-center py-12 ${darkMode ? 'text-[#9aa6b2]' : 'text-[#666]'}`}>
+                                Ei löytynyt elokuvia hakusanalla "{movieSearch}"
+                            </p>
+                        )}
+                    </section>
+                )}
+
+                {/* Stars Page */}
+                {currentPage === 'stars' && (
+                    <section aria-labelledby="stars-title">
+                        <h2 id="stars-title" className="text-3xl font-bold text-[#b30000] mb-2 border-b-4 border-[#d4af37] inline-block pb-2">
+                            Tähdet
+                        </h2>
+                        <p className={`mb-6 ${darkMode ? 'text-[#9aa6b2]' : 'text-[#666]'}`}>
+                            Isoimmat näyttelijät ja lyhyet esittelyt.
+                        </p>
+                        
+                        <div className="relative mb-6">
+                            <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
+                            <input
+                                type="text"
+                                placeholder="Hae tähtiä..."
+                                value={starSearch}
+                                onChange={(e) => setStarSearch(e.target.value)}
+                                className={`w-full max-w-md pl-10 pr-4 py-3 rounded-xl border ${
+                                    darkMode 
+                                        ? 'bg-[#121416] border-gray-700 text-white placeholder-gray-500' 
+                                        : 'bg-white border-gray-300 text-gray-900 placeholder-gray-400'
+                                } focus:outline-none focus:ring-2 focus:ring-[#b30000]/30`}
+                                aria-label="Hae tähtiä"
+                            />
+                        </div>
+
+                        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4" aria-live="polite" aria-label="Tähtilista">
+                            {filteredStars.map((star, i) => (
+                                <article 
+                                    key={i} 
+                                    className={`rounded-xl overflow-hidden shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 ${
+                                        darkMode ? 'bg-[#121416]' : 'bg-white'
+                                    }`}
+                                >
+                                    <img 
+                                        src={star.img} 
+                                        alt={star.name} 
+                                        className="w-full h-56 object-cover object-top"
+                                        loading="lazy"
+                                        onError={(e) => {
+                                            e.currentTarget.src = 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=350&fit=crop';
+                                        }}
+                                    />
+                                    <h3 className="p-3 font-bold text-[#b30000]">{star.name}</h3>
+                                    <p className={`px-3 pb-4 text-sm ${darkMode ? 'text-[#9aa6b2]' : 'text-[#666]'}`}>
+                                        {star.desc}
+                                    </p>
+                                </article>
+                            ))}
+                        </div>
+                        
+                        {filteredStars.length === 0 && (
+                            <p className={`text-center py-12 ${darkMode ? 'text-[#9aa6b2]' : 'text-[#666]'}`}>
+                                Ei löytynyt tähtiä hakusanalla "{starSearch}"
+                            </p>
+                        )}
+                    </section>
+                )}
+
+                {/* Directors Page */}
+                {currentPage === 'directors' && (
+                    <section aria-labelledby="directors-title">
+                        <h2 id="directors-title" className="text-3xl font-bold text-[#b30000] mb-6 border-b-4 border-[#d4af37] inline-block pb-2">
+                            Ohjaajat
+                        </h2>
+
+                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                            {directors.map((director, i) => (
+                                <article 
+                                    key={i} 
+                                    className={`p-6 rounded-xl border-l-4 border-[#d4af37] shadow-lg hover:translate-x-1 hover:shadow-xl transition-all duration-300 ${
+                                        darkMode ? 'bg-[#121416]' : 'bg-gradient-to-r from-white to-gray-50'
+                                    }`}
+                                >
+                                    <h3 className="text-xl font-bold text-[#b30000] mb-2">{director.name}</h3>
+                                    <p className={darkMode ? 'text-[#9aa6b2]' : 'text-[#666]'}>{director.desc}</p>
+                                </article>
+                            ))}
+                        </div>
+                    </section>
+                )}
+
+                {/* Music Page */}
+                {currentPage === 'music' && (
+                    <section aria-labelledby="music-title">
+                        <h2 id="music-title" className="text-3xl font-bold text-[#b30000] mb-6 border-b-4 border-[#d4af37] inline-block pb-2">
+                            Musiikki
+                        </h2>
+
+                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+                            {musicians.map((musician, i) => (
+                                <article 
+                                    key={i} 
+                                    className={`p-5 rounded-xl border-l-4 border-[#d4af37] shadow-lg hover:translate-x-1 hover:shadow-xl transition-all duration-300 ${
+                                        darkMode ? 'bg-[#121416]' : 'bg-gradient-to-r from-white to-gray-50'
+                                    }`}
+                                >
+                                    <h3 className="text-lg font-bold text-[#b30000] mb-1">{musician.name}</h3>
+                                    <p className="text-[#d4af37] font-semibold text-xs uppercase tracking-wide mb-2">
+                                        {musician.role}
+                                    </p>
+                                    <p className={`text-sm ${darkMode ? 'text-[#9aa6b2]' : 'text-[#666]'}`}>
+                                        {musician.desc}
+                                    </p>
+                                </article>
+                            ))}
+                        </div>
+                    </section>
+                )}
+            </main>
+
+            {/* Footer */}
+            <footer className="bg-[#222] text-white py-6 mt-12">
+                <div className="max-w-7xl mx-auto px-4 text-center">
+                    <p>&copy; 2025 Bollywoodin Taikaa — Kaikki oikeudet pidätetään.</p>
+                </div>
+            </footer>
+        </div>
+    );
+}
+
+        ReactDOM.render(<BollywoodWebsite />, document.getElementById('root'));
+    </script>
+</body>
+</html>

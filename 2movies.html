@@ -1,0 +1,731 @@
+<!doctype html>
+<html lang="fi">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Bollywoodin Taikaa — Elokuvat</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <a class="skip-link" href="#main">Siirry sisältöön</a>
+
+    <header class="site-header" role="banner">
+        <div class="container header-inner">
+            <h1 class="site-title"><a href="index.html" class="nav-link">Bollywoodin Taikaa</a></h1>
+
+            <nav class="main-nav" aria-label="Päävalikko">
+                <a href="index.html" class="nav-link">Etusivu</a>
+                <a href="2movies.html" class="nav-link active" aria-current="page">Elokuvat</a>
+                <a href="3stars.html" class="nav-link">Tähdet</a>
+                <a href="4directors.html" class="nav-link">Ohjaajat</a>
+                <a href="5music.html" class="nav-link">Musiikki</a>
+            </nav>
+
+            <div class="header-actions">
+                <button id="theme-toggle" aria-pressed="false" aria-label="Vaihda tummaan tilaan">Tumma</button>
+            </div>
+        </div>
+    </header>
+
+    <main id="main" class="container" role="main" tabindex="-1">
+        <section aria-labelledby="movies-title" class="page-section">
+            <h2 id="movies-title" class="page-title">Top Elokuvat</h2>
+
+            <div class="movie-controls">
+                <input type="text" id="movie-search" placeholder="Hae elokuvia">
+            </div>
+
+            <!-- Movie cards are static HTML for simplicity -->
+            <div id="movies-grid" class="grid-list" aria-live="polite">
+                <!-- Example card; kopioi tai korvaa omilla kuvilla -->
+
+
+                <article class="movie-card">
+                    <img src="pictures/Sholay.png" alt="Sholay (1975) juliste" loading="lazy" width="300" height="450">
+                    <h3 class="movie-title">Sholay (1975)</h3>
+                    <p class="movie-meta">Klassikko — seikkailu & toimintaa.</p>
+                </article>
+
+                <article class="movie-card">
+                    <img src="pictures/DDLJ.png" alt="Dilwale Dulhania Le Jayenge (1995) juliste" loading="lazy"
+                        width="300" height="450">
+                    <h3 class="movie-title">Dilwale Dulhania Le Jayenge (1995)</h3>
+                    <p class="movie-meta">Romanttinen kulttiklassikko.</p>
+                </article>
+
+                <article class="movie-card">
+                    <img src="pictures/3Idiots.png" alt="3 Idiots (2009) juliste" loading="lazy" width="300"
+                        height="450">
+                    <h3 class="movie-title">3 Idiots (2009)</h3>
+                    <p class="movie-meta">Komediallinen draama koulusta ja ystävyydestä.</p>
+                </article>
+
+                <article class="movie-card">
+                    <img src="pictures/Bahubali1.png" alt="Bahubali: The Beginning (2015) juliste" loading="lazy"
+                        width="300" height="450">
+                    <h3 class="movie-title">Bahubali: The Beginning (2015)</h3>
+                    <p class="movie-meta">Eepos täynnä toimintaa ja visuaalisia tehosteita.</p>
+                </article>
+
+                <article class="movie-card">
+                    <img src="pictures/Bahubali2.png" alt="Bahubali 2: The Conclusion (2017) juliste" loading="lazy"
+                        width="300" height="450">
+                    <h3 class="movie-title">Bahubali 2: The Conclusion (2017)</h3>
+                    <p class="movie-meta">Eepos täynnä toimintaa ja visuaalisia tehosteita.</p>
+                </article>
+
+                <article class="movie-card">
+                    <img src="pictures/KKKG.png" alt="Kabhi Khushi Kabhie Gham (2001) juliste" loading="lazy"
+                        width="300" height="450">
+                    <h3 class="movie-title">Kabhi Khushi Kabhie Gham (2001)</h3>
+                    <p class="movie-meta">Perhedraama ja tunteikas kertomus.</p>
+                </article>
+
+                <article class="movie-card">
+                    <img src="pictures/Lagaan.png" alt="Lagaan (2001) juliste" loading="lazy" width="300" height="450">
+                    <h3 class="movie-title">Lagaan (2001)</h3>
+                    <p class="movie-meta">Historiallinen draama ja urheiluelokuva.</p>
+                </article>
+
+                <article class="movie-card">
+                    <img src="pictures/Dangal.png" alt="Dangal (2016) juliste" loading="lazy" width="300" height="450">
+                    <h3 class="movie-title">Dangal (2016)</h3>
+                    <p class="movie-meta">Inspiroiva urheilu.</p>
+                </article>
+
+                <article class="movie-card">
+                    <img src="pictures/PK.png" alt="PK (2014) juliste" loading="lazy" width="300" height="450">
+                    <h3 class="movie-title">PK (2014)</h3>
+                    <p class="movie-meta">Komediallinen draama uskonnosta ja ihmiskunnasta.</p>
+                </article>
+
+                <article class="movie-card">
+                    <img src="pictures/ZindagiNaMilegiDobara.png" alt="Zindagi Na Milegi Dobara (2011) juliste"
+                        loading="lazy" width="300" height="450">
+                    <h3 class="movie-title">Zindagi Na Milegi Dobara (2011)</h3>
+                    <p class="movie-meta">Seikkailu ja itsensä löytäminen.</p>
+                </article>
+
+                <article class="movie-card">
+                    <img src="pictures/Barfi.png" alt="Barfi! (2012) juliste" loading="lazy" width="300" height="450">
+                    <h3 class="movie-title">Barfi! (2012)</h3>
+                    <p class="movie-meta">Romanttinen draama ja komedia.</p>
+                </article>
+
+                <article class="movie-card">
+                    <img src="pictures/KoiMilGaya.png" alt="Koi Mil Gaya (2003) juliste" loading="lazy" width="300"
+                        height="450">
+                    <h3 class="movie-title">Koi Mil Gaya (2003)</h3>
+                    <p class="movie-meta">Sci-fi ja fantasia.</p>
+                </article>
+
+                <article class="movie-card">
+                    <img src="pictures/Krrish.png" alt="Krrish (2006) juliste" loading="lazy" width="300" height="450">
+                    <h3 class="movie-title">Krrish (2006)</h3>
+                    <p class="movie-meta">Sci-fi ja fantasia.</p>
+                </article>
+
+                <article class="movie-card">
+                    <img src="pictures/Krrish3.png" alt="Krrish 3 (2013) juliste" loading="lazy" width="300"
+                        height="450">
+                    <h3 class="movie-title">Krrish 3 (2013)</h3>
+                    <p class="movie-meta">Sci-fi ja fantasia.</p>
+                </article>
+
+                <article class="movie-card">
+                    <img src="pictures/Devdas.png" alt="Devdas (2002) juliste" loading="lazy" width="300" height="450">
+                    <h3 class="movie-title">Devdas (2002)</h3>
+                    <p class="movie-meta">Tragikoominen rakkaustarina.</p>
+                </article>
+
+                <article class="movie-card">
+                    <img src="pictures/TaareZameenPar.png" alt="Taare Zameen Par (2007) juliste" loading="lazy"
+                        width="300" height="450">
+                    <h3 class="movie-title">Taare Zameen Par (2007)</h3>
+                    <p class="movie-meta">Tunteikas draama lapsesta ja koulusta.</p>
+                </article>
+
+                <article class="movie-card">
+                    <img src="pictures/Robot.png" alt="Robot (2010) juliste" loading="lazy" width="300" height="450">
+                    <h3 class="movie-title">Robot (2010)</h3>
+                    <p class="movie-meta">Sci-fi ja fantasia.</p>
+                </article>
+
+                <article class="movie-card">
+                    <img src="pictures/ChennaiExpress.png" alt="Chennai Express (2013) juliste" loading="lazy"
+                        width="300" height="450">
+                    <h3 class="movie-title">Chennai Express (2013)</h3>
+                    <p class="movie-meta">Toimintakomedia ja romantiikka.</p>
+                </article>
+
+                <article class="movie-card">
+                    <img src="pictures/Housefull1.png" alt="Housefull 1 (2010) juliste" loading="lazy" width="300"
+                        height="450">
+                    <h3 class="movie-title">Housefull 1 (2010)</h3>
+                    <p class="movie-meta">Komediallinen sekasorto ja hauskat tilanteet.</p>
+                </article>
+
+                <article class="movie-card">
+                    <img src="pictures/Housefull2.png" alt="Housefull 2 (2012) juliste" loading="lazy" width="300"
+                        height="450">
+                    <h3 class="movie-title">Housefull 2 (2012)</h3>
+                    <p class="movie-meta">Komediallinen sekasorto ja hauskat tilanteet.</p>
+                </article>
+
+                <article class="movie-card">
+                    <img src="pictures/Housefull3.png" alt="Housefull 3 (2016) juliste" loading="lazy" width="300"
+                        height="450">
+                    <h3 class="movie-title">Housefull 3 (2016)</h3>
+                    <p class="movie-meta">Komediallinen sekasorto ja hauskat tilanteet.</p>
+                </article>
+
+                <article class="movie-card">
+                    <img src="pictures/Housefull4.png" alt="Housefull 4 (2019) juliste" loading="lazy" width="300"
+                        height="450">
+                    <h3 class="movie-title">Housefull 4 (2019)</h3>
+                    <p class="movie-meta">Komediallinen sekasorto ja hauskat tilanteet.</p>
+                </article>
+
+                <article class="movie-card">
+                    <img src="pictures/Housefull5.png" alt="Housefull 5 (2025) juliste" loading="lazy" width="300"
+                        height="450">
+                    <h3 class="movie-title">Housefull 5 (2025)</h3>
+                    <p class="movie-meta">Komediallinen sekasorto ja hauskat tilanteet.</p>
+                </article>
+
+                <article class="movie-card">
+                    <img src="pictures/Sultan.png" alt="Sultan (2016) juliste" loading="lazy" width="300" height="450">
+                    <h3 class="movie-title">Sultan (2016)</h3>
+                    <p class="movie-meta">Urheilu ja draama.</p>
+                </article>
+
+                <article class="movie-card">
+                    <img src="pictures/BajrangiBhaijaan.png" alt="Bajrangi Bhaijaan (2015) juliste" loading="lazy"
+                        width="300" height="450">
+                    <h3 class="movie-title">Bajrangi Bhaijaan (2015)</h3>
+                    <p class="movie-meta">Tunteikas draama ja seikkailu.</p>
+                </article>
+
+                <article class="movie-card">
+                    <img src="pictures/TigerZindaHai.png" alt="Tiger Zinda Hai (2017) juliste" loading="lazy"
+                        width="300" height="450">
+                    <h3 class="movie-title">Tiger Zinda Hai (2017)</h3>
+                    <p class="movie-meta">Toiminta ja jännitys.</p>
+                </article>
+
+                <article class="movie-card">
+                    <img src="pictures/JabTakHaiJaan.png" alt="Jab Tak Hai Jaan (2012) juliste" loading="lazy"
+                        width="300" height="450">
+                    <h3 class="movie-title">Jab Tak Hai Jaan (2012)</h3>
+                    <p class="movie-meta">Romanttinen draama ja seikkailu.</p>
+                </article>
+
+                <article class="movie-card">
+                    <img src="pictures/Guzaarish.png" alt="Guzaarish (2010) juliste" loading="lazy" width="300"
+                        height="450">
+                    <h3 class="movie-title">Guzaarish (2010)</h3>
+                    <p class="movie-meta">Tunteikas draama rakkaudesta ja elämästä.</p>
+                </article>
+
+                <article class="movie-card">
+                    <img src="pictures/Padmaavat.png" alt="Padmaavat (2018) juliste" loading="lazy" width="300"
+                        height="450">
+                    <h3 class="movie-title">Padmaavat (2018)</h3>
+                    <p class="movie-meta">Historiallinen eepos ja seikkailu.</p>
+                </article>
+
+                <article class="movie-card">
+                    <img src="pictures/Raees.png" alt="Raees (2017) juliste" loading="lazy" width="300" height="450">
+                    <h3 class="movie-title">Raees (2017)</h3>
+                    <p class="movie-meta">Gangsteri-draama ja toiminta.</p>
+                </article>
+
+                <article class="movie-card">
+                    <img src="pictures/HeyRam.png" alt="Hey Ram (2000) juliste" loading="lazy" width="300" height="450">
+                    <h3 class="movie-title">Hey Ram (2000)</h3>
+                    <p class="movie-meta">Poliittinen draama ja seikkailu.</p>
+                </article>
+
+                <article class="movie-card">
+                    <img src="pictures/RangDeBasanti.png" alt="Rang De Basanti (2006) juliste" loading="lazy"
+                        width="300" height="450">
+                    <h3 class="movie-title">Rang De Basanti (2006)</h3>
+                    <p class="movie-meta">Nuorison draama ja aktivismia.</p>
+                </article>
+
+                <article class="movie-card">
+                    <img src="pictures/JaiBhim.png" alt="Jai Bhim (2021) juliste" loading="lazy" width="300"
+                        height="450">
+                    <h3 class="movie-title">Jai Bhim (2021)</h3>
+                    <p class="movie-meta">Oikeudellinen draama ja taistelija.</p>
+                </article>
+
+                <article class="movie-card">
+                    <img src="pictures/Article15.png" alt="Article 15 (2019) juliste" loading="lazy" width="300"
+                        height="450">
+                    <h3 class="movie-title">Article 15 (2019)</h3>
+                    <p class="movie-meta">Oikeudellinen draama ja tutkimus.</p>
+                </article>
+
+                <article class="movie-card">
+                    <img src="pictures/Mulk.png" alt="Mulk (2018) juliste" loading="lazy" width="300" height="450">
+                    <h3 class="movie-title">Mulk (2018)</h3>
+                    <p class="movie-meta">Oikeudellinen draama ja perhe.</p>
+                </article>
+
+                <article class="movie-card">
+                    <img src="pictures/Pink.png" alt="Pink (2016) juliste" loading="lazy" width="300" height="450">
+                    <h3 class="movie-title">Pink (2016)</h3>
+                    <p class="movie-meta">Oikeudellinen draama ja feminismi.</p>
+                </article>
+
+                <article class="movie-card">
+                    <img src="pictures/Kahaani.png" alt="Kahaani (2012) juliste" loading="lazy" width="300"
+                        height="450">
+                    <h3 class="movie-title">Kahaani (2012)</h3>
+                    <p class="movie-meta">Mysteeri ja jännitys.</p>
+                </article>
+
+                <article class="movie-card">
+                    <img src="pictures/Natarang.png" alt="Natarang (2016) juliste" loading="lazy" width="300"
+                        height="450">
+                    <h3 class="movie-title">Natarang (2016)</h3>
+                    <p class="movie-meta">Draama ja taide.</p>
+                </article>
+
+                <article class="movie-card">
+                    <img src="pictures/Robot2.O.png" alt="Robot 2.0 (2018) juliste" loading="lazy" width="300" height="450">
+                    <h3 class="movie-title">Robot 2.0 (2018)</h3>
+                    <p class="movie-meta">Draama ja teknologia.</p>
+                </article>
+
+                <article class="movie-card">
+                    <img src="pictures/Tumbbad.png" alt="Tumbbad (2018) juliste" loading="lazy" width="300"
+                        height="450">
+                    <h3 class="movie-title">Tumbbad (2018)</h3>
+                    <p class="movie-meta">Kauhu ja mysteeri.</p>
+                </article>
+
+                <article class="movie-card">
+                    <img src="pictures/RamanRaghav2.png" alt="Raman Raghav 2.0 (2016) juliste" loading="lazy"
+                        width="300" height="450">
+                    <h3 class="movie-title">Raman Raghav 2.0 (2016)</h3>
+                    <p class="movie-meta">Psykologinen thriller.</p>
+                </article>
+
+                <article class="movie-card">
+                    <img src="pictures/Ugly.png" alt="Ugly (2013) juliste" loading="lazy" width="300" height="450">
+                    <h3 class="movie-title">Ugly (2013)</h3>
+                    <p class="movie-meta">Kriminalisti draama.</p>
+                </article>
+
+                <article class="movie-card">
+                    <img src="pictures/EkHasinaThi.png" alt="Ek Hasina Thi (2004) juliste" loading="lazy" width="300"
+                        height="450">
+                    <h3 class="movie-title">Ek Hasina Thi (2004)</h3>
+                    <p class="movie-meta">Thriller ja rakkaustarina.</p>
+                </article>
+
+                <article class="movie-card">
+                    <img src="pictures/Chandni.png" alt="Chandni (1989) juliste" loading="lazy" width="300"
+                        height="450">
+                    <h3 class="movie-title">Chandni (1989)</h3>
+                    <p class="movie-meta">Romanttinen draama klassikko.</p>
+                </article>
+
+                <article class="movie-card">
+                    <img src="pictures/Silsila.png" alt="Silsila (1981) juliste" loading="lazy" width="300"
+                        height="450">
+                    <h3 class="movie-title">Silsila (1981)</h3>
+                    <p class="movie-meta">Romanttinen draama ja kolmio.</p>
+                </article>
+
+                <article class="movie-card">
+                    <img src="pictures/DilSe.png" alt="Dil Se (1998) juliste" loading="lazy" width="300" height="450">
+                    <h3 class="movie-title">Dil Se (1998)</h3>
+                    <p class="movie-meta">Romanttinen thriller.</p>
+                </article>
+
+                <article class="movie-card">
+                    <img src="pictures/Bholaa.png" alt="Bholaa (1997) juliste" loading="lazy" width="300"
+                        height="450">
+                    <h3 class="movie-title">Bholaa (1997)</h3>
+                    <p class="movie-meta">Toiminta ja draama.</p>
+                </article>
+
+                <article class="movie-card">
+                    <img src="pictures/HeraPheri.png" alt="Hera Pheri (2000) juliste" loading="lazy" width="300"
+                        height="450">
+                    <h3 class="movie-title">Hera Pheri (2000)</h3>
+                    <p class="movie-meta">Komedia ja seikkailu.</p>
+                </article>
+
+                <article class="movie-card">
+                    <img src="pictures/PhirHeraPheri.png" alt="Phir Hera Pheri (2006) juliste" loading="lazy"
+                        width="300" height="450">
+                    <h3 class="movie-title">Phir Hera Pheri (2006)</h3>
+                    <p class="movie-meta">Komedia ja huijaukset.</p>
+                </article>
+
+                <article class="movie-card">
+                    <img src="pictures/BolBachhan.png" alt="Bol Bachchan (2012) juliste" loading="lazy" width="300"
+                        height="450">
+                    <h3 class="movie-title">Bol Bachchan (2012)</h3>
+                    <p class="movie-meta">Komedia ja toiminta.</p>
+                </article>
+
+                <article class="movie-card">
+                    <img src="pictures/SinghIsKinng.png" alt="Singh Is Kinng (2008) juliste" loading="lazy" width="300"
+                        height="450">
+                    <h3 class="movie-title">Singh Is Kinng (2008)</h3>
+                    <p class="movie-meta">Komedia ja toiminta.</p>
+                </article>
+
+                <article class="movie-card">
+                    <img src="pictures/Khiladi.png" alt="Khiladi (1992) juliste" loading="lazy" width="300"
+                        height="450">
+                    <h3 class="movie-title">Khiladi (1992)</h3>
+                    <p class="movie-meta">Urheilu ja toiminta.</p>
+                </article>
+
+                <article class="movie-card">
+                    <img src="pictures/Baadshah.png" alt="Baadshah (1999) juliste" loading="lazy" width="300"
+                        height="450">
+                    <h3 class="movie-title">Baadshah (1999)</h3>
+                    <p class="movie-meta">Komedia ja kriminalisti.</p>
+                </article>
+
+                <article class="movie-card">
+                    <img src="pictures/AndazApnaApna.png" alt="Andaz Apna Apna (1994) juliste" loading="lazy"
+                        width="300" height="450">
+                    <h3 class="movie-title">Andaz Apna Apna (1994)</h3>
+                    <p class="movie-meta">Komedia ja karaoke.</p>
+                </article>
+
+                <article class="movie-card">
+                    <img src="pictures/Animal.png" alt="Animal (2023) juliste" loading="lazy" width="300"
+                        height="450">
+                    <h3 class="movie-title">Animal (2023)</h3>
+                    <p class="movie-meta">kriminalisti ja rakkaudesta</p>
+                </article>
+
+                <article class="movie-card">
+                    <img src="pictures/ChakDeIndia.png" alt="Chak De India (2007) juliste" loading="lazy" width="300"
+                        height="450">
+                    <h3 class="movie-title">Chak De India (2007)</h3>
+                    <p class="movie-meta">Urheilu ja naisen voimistuminen.</p>
+                </article>
+
+                <article class="movie-card">
+                    <img src="pictures/BhaagMilkhaBhaag.png" alt="Bhaag Milkha Bhaag (2013) juliste" loading="lazy"
+                        width="300" height="450">
+                    <h3 class="movie-title">Bhaag Milkha Bhaag (2013)</h3>
+                    <p class="movie-meta">Urheilu ja elämäkerta.</p>
+                </article>
+
+                <article class="movie-card">
+                    <img src="pictures/MaryKom.png" alt="Mary Kom (2014) juliste" loading="lazy" width="300"
+                        height="450">
+                    <h3 class="movie-title">Mary Kom (2014)</h3>
+                    <p class="movie-meta">Urheilu ja naisen voima.</p>
+                </article>
+
+                <article class="movie-card">
+                    <img src="pictures/MSDhoni.png" alt="MS Dhoni: The Untold Story (2016) juliste" loading="lazy"
+                        width="300" height="450">
+                    <h3 class="movie-title">MS Dhoni: The Untold Story (2016)</h3>
+                    <p class="movie-meta">Krikett ja elämäkerta.</p>
+                </article>
+
+                <article class="movie-card">
+                    <img src="pictures/Sanju.png" alt="Sanju (2018) juliste" loading="lazy" width="300" height="450">
+                    <h3 class="movie-title">Sanju (2018)</h3>
+                    <p class="movie-meta">Elämäkerta ja draama.</p>
+                </article>
+
+                <article class="movie-card">
+                    <img src="pictures/PadMan.png" alt="Pad Man (2018) juliste" loading="lazy" width="300" height="450">
+                    <h3 class="movie-title">Pad Man (2018)</h3>
+                    <p class="movie-meta">Draama ja yhteiskunta.</p>
+                </article>
+
+                <article class="movie-card">
+                    <img src="pictures/Toilet.png" alt="Toilet: Ek Prem Katha (2017) juliste" loading="lazy"
+                        width="300" height="450">
+                    <h3 class="movie-title">Toilet: Ek Prem Katha (2017)</h3>
+                    <p class="movie-meta">Komedia ja yhteiskunta.</p>
+                </article>
+
+                <article class="movie-card">
+                    <img src="pictures/Section375.png" alt="Section 375 (2019) juliste" loading="lazy" width="300"
+                        height="450">
+                    <h3 class="movie-title">Section 375 (2019)</h3>
+                    <p class="movie-meta">Oikeudellinen draama.</p>
+                </article>
+
+                <article class="movie-card">
+                    <img src="pictures/Baazigar.png" alt="Baazigar (1993) juliste" loading="lazy" width="300"
+                        height="450">
+                    <h3 class="movie-title">Baazigar (1993)</h3>
+                    <p class="movie-meta">Draama ja elämä.</p>
+                </article>
+
+                <article class="movie-card">
+                    <img src="pictures/GullyBoy.png" alt="Gully Boy (2019) juliste" loading="lazy" width="300"
+                        height="450">
+                    <h3 class="movie-title">Gully Boy (2019)</h3>
+                    <p class="movie-meta">Musiikki ja draama.</p>
+                </article>
+            
+                <article class="movie-card">
+                    <img src="pictures/VeerZaara.png" alt="Veer-Zaara (2004) juliste" loading="lazy" width="300"
+                        height="450">
+                    <h3 class="movie-title">Veer-Zaara (2004)</h3>
+                    <p class="movie-meta">Klassinen rakkaustarina.</p>
+                </article>
+
+                <article class="movie-card">
+                    <img src="pictures/EkThaTiger.png" alt="Ek Tha Tiger (2012) juliste" loading="lazy" width="300"
+                        height="450">
+                    <h3 class="movie-title">Ek Tha Tiger (2012)</h3>
+                    <p class="movie-meta">Vakooja ja romantiikka.</p>
+                </article>
+
+                <article class="movie-card">
+                    <img src="pictures/Pathaan.png" alt="Pathaan (2023) juliste" loading="lazy" width="300"
+                        height="450">
+                    <h3 class="movie-title">Pathaan (2023)</h3>
+                    <p class="movie-meta">Vakooja thriller ja toiminta.</p>
+                </article>
+
+                <article class="movie-card">
+                    <img src="pictures/LoveAajKal.png" alt="Love Aaj Kal (2009) juliste" loading="lazy" width="300"
+                        height="450">
+                    <h3 class="movie-title">Love Aaj Kal (2009)</h3>
+                    <p class="movie-meta">Romanttinen draama aikamatka.</p>
+                </article>
+
+                <article class="movie-card">
+                    <img src="pictures/HaseeTohPhasee.png" alt="Hasee Toh Phasee (2013) juliste" loading="lazy"
+                        width="300" height="450">
+                    <h3 class="movie-title">Hasee Toh Phasee (2013)</h3>
+                    <p class="movie-meta">Romanttinen komedia.</p>
+                </article>
+
+                <article class="movie-card">
+                    <img src="pictures/YeJawaniHaiDeewani.png" alt="Ye Jawaani Hai Deewani (2013) juliste"
+                        loading="lazy" width="300" height="450">
+                    <h3 class="movie-title">Ye Jawaani Hai Deewani (2013)</h3>
+                    <p class="movie-meta">Romanttinen nuorison seikkailu.</p>
+                </article>
+
+                <article class="movie-card">
+                    <img src="pictures/Aashiqui2.png" alt="Aashiqui 2 (2013) juliste" loading="lazy" width="300"
+                        height="450">
+                    <h3 class="movie-title">Aashiqui 2 (2013)</h3>
+                    <p class="movie-meta">Musiikki ja rakkaustarina.</p>
+                </article>
+
+                <article class="movie-card">
+                    <img src="pictures/Kaabil.png" alt="Kaabil (2017) juliste" loading="lazy" width="300" height="450">
+                    <h3 class="movie-title">Kaabil (2017)</h3>
+                    <p class="movie-meta">Thriller ja kosto.</p>
+                </article>
+
+                <article class="movie-card">
+                    <img src="pictures/Shaitaan.png" alt="Shaitaan (2024) juliste" loading="lazy" width="300"
+                        height="450">
+                    <h3 class="movie-title">Shaitaan (2024)</h3>
+                    <p class="movie-meta">Thriller ja musta komedia.</p>
+                </article>
+
+                <article class="movie-card">
+                    <img src="pictures/Bhediya.png" alt="Bhediya (2022) juliste" loading="lazy" width="300"
+                        height="450">
+                    <h3 class="movie-title">Bhediya (2022)</h3>
+                    <p class="movie-meta">Kauhu komedia.</p>
+                </article>
+
+                <article class="movie-card">
+                    <img src="pictures/Stree.png" alt="Stree (2018) juliste" loading="lazy" width="300" height="450">
+                    <h3 class="movie-title">Stree (2018)</h3>
+                    <p class="movie-meta">Kauhu komedia.</p>
+                </article>
+
+                <article class="movie-card">
+                    <img src="pictures/BhoolBhulaiyaa.png" alt="Bhool Bhulaiyaa (2007) juliste" loading="lazy"
+                        width="300" height="450">
+                    <h3 class="movie-title">Bhool Bhulaiyaa (2007)</h3>
+                    <p class="movie-meta">Kauhu komedia.</p>
+                </article>
+
+                <article class="movie-card">
+                    <img src="pictures/BhoolBhulaiyaa2.png" alt="Bhool Bhulaiyaa 2 (2022) juliste" loading="lazy"
+                        width="300" height="450">
+                    <h3 class="movie-title">Bhool Bhulaiyaa 2 (2022)</h3>
+                    <p class="movie-meta">Kauhu komedia.</p>
+                </article>
+
+                <article class="movie-card">
+                    <img src="pictures/BhoolBhulaiyaa3.png" alt="Bhool Bhulaiyaa 3 (2024) juliste" loading="lazy"
+                        width="300" height="450">
+                    <h3 class="movie-title">Bhool Bhulaiyaa 3 (2024)</h3>
+                    <p class="movie-meta">Kauhu komedia.</p>
+                </article>
+
+                <article class="movie-card">
+                    <img src="pictures/GolmaalAgain.png" alt="Golmaal Again (2017) juliste" loading="lazy" width="300"
+                        height="450">
+                    <h3 class="movie-title">Golmaal Again (2017)</h3>
+                    <p class="movie-meta">Kauhu komedia.</p>
+                </article>
+
+                <article class="movie-card">
+                    <img src="pictures/Drishyam.png" alt="Drishyam (2015) juliste" loading="lazy" width="300"
+                        height="450">
+                    <h3 class="movie-title">Drishyam (2015)</h3>
+                    <p class="movie-meta">Thriller ja salaisuus.</p>
+                </article>
+
+                <article class="movie-card">
+                    <img src="pictures/Drishyam2.png" alt="Drishyam 2 (2022) juliste" loading="lazy" width="300"
+                        height="450">
+                    <h3 class="movie-title">Drishyam 2 (2022)</h3>
+                    <p class="movie-meta">Thriller ja salaisuus.</p>
+                </article>
+
+                <article class="movie-card">
+                    <img src="pictures/Raid.png" alt="Raid (2018) juliste" loading="lazy" width="300" height="450">
+                    <h3 class="movie-title">Raid (2018)</h3>
+                    <p class="movie-meta">Toiminta thriller.</p>
+                </article>
+
+                <article class="movie-card">
+                    <img src="pictures/Akira.png" alt="Akira (2016) juliste" loading="lazy" width="300" height="450">
+                    <h3 class="movie-title">Akira (2016)</h3>
+                    <p class class="movie-meta">Toiminta thriller naisen näkökulmasta.</p>
+                </article>
+
+                <article class="movie-card">
+                    <img src="pictures/Mastii4.png" alt="Mastii 4 (2025) juliste" loading="lazy" width="300" height="450">
+                    <h3 class="movie-title">Mastii 4 (2025)</h3>
+                    <p class="movie-meta">Romanttinen komedia.</p>
+                </article>
+
+                <article class="movie-card">
+                    <img src="pictures/Lootera.png" alt="Lootera (2013) juliste" loading="lazy" width="300"
+                        height="450">
+                    <h3 class="movie-title">Lootera (2013)</h3>
+                    <p class="movie-meta">Rakkaustarina ja seikkailu.</p>
+                </article>
+
+                <article class="movie-card">
+                    <img src="pictures/Raanjhanaa.png" alt="Raanjhanaa (2013) juliste" loading="lazy" width="300"
+                        height="450">
+                    <h3 class="movie-title">Raanjhanaa (2013)</h3>
+                    <p class="movie-meta">Romanttinen draama poliittinen.</p>
+                </article>
+
+                <article class="movie-card">
+                    <img src="pictures/Brahmastra.png" alt="Brahmastra (2022) juliste" loading="lazy" width="300" height="450">
+                    <h3 class="movie-title">Brahmastra (2022)</h3>
+                    <p class="movie-meta">Fantasia ja seikkailu.</p>
+                </article>
+
+                <article class="movie-card">
+                    <img src="pictures/Makhhi.png" alt="Makhhi (2012) juliste" loading="lazy" width="300"
+                        height="450">
+                    <h3 class="movie-title">Makhhi (2012)</h3>
+                    <p class="movie-meta">Kaksisiipinen hyönteinen</p>
+                </article>
+
+                <article class="movie-card">
+                    <img src="pictures/Cirkus.png" alt="Cirkus (2022) juliste" loading="lazy" width="300"
+                        height="450">
+                    <h3 class="movie-title">Cirkus (2022)</h3>
+                    <p class="movie-meta">Jännitystrilleri ja Perhedraama</p>
+                </article>
+
+                <article class="movie-card">
+                    <img src="pictures/War.png" alt="War (2019) juliste" loading="lazy" width="300" height="450">
+                    <h3 class="movie-title">War (2019)</h3>
+                    <p class="movie-meta">Toiminta vakooja draama.</p>
+                </article>
+
+                <article class="movie-card">
+                    <img src="pictures/War2.png" alt="War 2 (2025) juliste" loading="lazy" width="300"
+                        height="450">
+                    <h3 class="movie-title">War 2 (2025)</h3>
+                    <p class="movie-meta">Toiminta draama kosto.</p>
+                </article>
+
+                <article class="movie-card">
+                    <img src="pictures/Baaghi.png" alt="Baaghi (2016) juliste" loading="lazy" width="300" height="450">
+                    <h3 class="movie-title">Baaghi (2016)</h3>
+                    <p class="movie-meta">Toiminta draama kosto.</p>
+                </article>
+
+                <article class="movie-card">
+                    <img src="pictures/Baaghi2.png" alt="Baaghi 2 (2018) juliste" loading="lazy" width="300"
+                        height="450">
+                    <h3 class="movie-title">Baaghi 2 (2018)</h3>
+                    <p class="movie-meta">Toiminta draama kosto.</p>
+                </article>
+
+                <article class="movie-card">
+                    <img src="pictures/Baaghi3.png" alt="Baaghi 3 (2020) juliste" loading="lazy" width="300"
+                        height="450">
+                    <h3 class="movie-title">Baaghi 3 (2020)</h3>
+                    <p class="movie-meta">Toiminta draama kosto.</p>
+                </article>
+
+                <article class="movie-card">
+                    <img src="pictures/Baaghi4.png" alt="Baaghi 4 (2025) juliste" loading="lazy" width="300"
+                        height="450">
+                    <h3 class="movie-title">Baaghi 4 (2025)</h3>
+                    <p class="movie-meta">Toiminta draama kosto.</p>
+                </article>
+
+                <article class="movie-card">
+                    <img src="pictures/Ghayal.png" alt="Ghayal (1990) juliste" loading="lazy" width="300" height="450">
+                    <h3 class="movie-title">Ghayal (1990)</h3>
+                    <p class="movie-meta">Toiminta draama klassikko.</p>
+                </article>
+
+                <article class="movie-card">
+                    <img src="pictures/GhayalOnceAgain.png" alt="Ghayal Once Again (2016) juliste" loading="lazy"
+                        width="300" height="450">
+                    <h3 class="movie-title">Ghayal Once Again (2016)</h3>
+                    <p class="movie-meta">Toiminta draama kosto.</p>
+                </article>
+                
+                <article class="movie-card">
+                    <img src="pictures/Judaai.png" alt="Judaai (1997) juliste" loading="lazy" width="300" height="450">
+                    <h3 class="movie-title">Judaai (1997)</h3>
+                    <p class="movie-meta">Romanttinen draama klassikko.</p>
+                </article>
+
+                <article class="movie-card">
+                    <img src="pictures/Players.png" alt="Players (2012) juliste" loading="lazy" width="300"
+                        height="450">
+                    <h3 class="movie-title">Players (2012)</h3>
+                    <p class="movie-meta">Toiminta seikkailu rikos.</p>
+                </article>
+
+                <!-- Lisää paikallisia kortteja tarpeen mukaan -->
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer" role="contentinfo">
+        <div class="container footer-inner">
+            <p>&copy; 2025 Bollywoodin Taikaa</p>
+        </div>
+    </footer>
+
+    <script src="script.js" defer></script>
+</body>
+
+</html>
